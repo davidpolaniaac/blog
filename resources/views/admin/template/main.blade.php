@@ -20,7 +20,14 @@
                 </div>
             </div>
             <footer>
-                <p>Blog <br> &copy davidpolania.website</p>
+                <div class="row">
+                    <div class="col-md-10">
+                        Blog
+                    </div>
+                    <div class="col-md-offset-1">
+                        &copy davidpolania.website
+                    </div>
+                </div>
             </footer>
         </div>
     </div>
