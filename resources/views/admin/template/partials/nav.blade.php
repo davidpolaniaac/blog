@@ -15,17 +15,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             @if(Auth::user())
             <ul class="nav navbar-nav">
-                <li><a href="#">Inicio</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ route('admin.users.index') }}">Listar</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{{ route('admin.users.create') }}">Crear usuario</a></li>
-                    </ul>
-                </li>
+                <li><a href="{{ route('admin.index') }}">Inicio</a></li>
+                <li><a href="{{ route('admin.users.index') }}">Usuarios</a></li>
                 <li><a href="{{ route('admin.categories.index') }}">Categorias</a></li>
-                <li><a href="#">Articulos</a></li>
+                <li><a href="{{ route('admin.articles.index') }}">Articulos</a></li>
                 <li><a href="#">Imagenes</a></li>
                 <li><a href="{{ route('admin.tags.index') }}">Tags</a></li>
             </ul>
