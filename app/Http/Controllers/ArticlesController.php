@@ -19,10 +19,14 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::orderBy('id', 'ASC')->paginate(5);
-        return view('admin.articles .index')->with('articles', $articles );
+        $articles = Article::search($request->title)->orderBy('id', 'DEC')->paginate(5);
+        $articles->each(function ($articles){
+            $articles->category;
+            $articles->user;
+        });
+        return view('admin.articles.index')->with('articles', $articles );
     }
 
     /**
