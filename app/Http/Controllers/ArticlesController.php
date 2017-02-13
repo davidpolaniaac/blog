@@ -91,7 +91,16 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::orderBy('name','ASC')->lists('name','id');
+        $tags = Tag::orderBy('name','ASC')->lists('name','id');
+        $article= Article::find($id);
+        $article->category;
+        $article_tags = $article->tags->lists('id')->ToArray();
+        return view('admin.articles.edit')
+            ->with('article', $article)
+            ->with('categories',$categories)
+            ->with('tags',$tags)
+            ->with('article_tags',$article_tags);
     }
 
     /**
@@ -103,7 +112,12 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $article = Article::find($id);
+        $article->fill($request->all());
+        $article->update();
+        $article->tags()->sync($request->tags);
+        Flash::warning("Se ha editado " . $article->title . " de forma exitosa!");
+        return redirect()->route('admin.articles.index');
     }
 
     /**
@@ -114,6 +128,9 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        $article->delete();
+        Flash::error("Se ha eliminado " . $article->title . " de forma exitosa!");
+        return redirect()->route('admin.articles.index');
     }
 }
