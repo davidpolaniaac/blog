@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <img alt="Blog" class="admin-logo-nav" src="{{ asset('images/logo.png') }}">
+            <img alt="Blog" class="admin-logo-nav" src="{{ asset('images/Logo.png') }}">
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
